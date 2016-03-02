@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.dcits.sense.common.dao.TableMapper">
+
+	<select id="selectTableDao" resultType="map"> <!-- parameterType="map" -->
+		SELECT 
+			NAME,
+			VALUE
+	    FROM
+			SENSE_TABLE_TEST
+		WHERE 1 = 1
+		<if test="seid != null and seid != '' " >
+			AND SEID = #{seid}
+		</if>
+		order by SEID
+	</select>
+    
+</mapper>
